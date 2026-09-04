@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.swap-active {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s ease;
+}
+
+.swap-leaving {
+  opacity: 0;
+  transform: none;
+  transition: opacity 0.5s ease;
+}

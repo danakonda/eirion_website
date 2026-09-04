@@ -1,0 +1,47 @@
+ <section class="relative overflow-hidden py-[100px] md:py-[140px] bg-forest-50 text-ink !py-[100px]">
+      <div class="container-site">
+        <div class="mb-16 max-w-3xl md:mb-20 mx-auto text-center">
+          <div appReveal>
+            <h2 class="font-heading text-4xl leading-[1.08] font-semibold tracking-tight text-balance md:text-[56px] text-forest-950">
+              <span class="block">{{ 'speed.title' | t }}</span>
+            </h2>
+          </div>
+        </div>
+        <div class="mx-auto grid max-w-4xl gap-7 md:grid-cols-2">
+          <div appReveal direction="left">
+            <div class="h-full rounded-3xl border border-forest-800/10 bg-white/60 p-9 opacity-80 grayscale-[0.3]">
+              <span class="grid size-12 place-items-center rounded-2xl bg-ink/5 text-ink/40">
+                <app-icon name="turtle" [size]="24" class="size-6" />
+              </span>
+              <p class="font-labels mt-6 text-[13px] font-semibold tracking-[0.18em] text-ink/45 uppercase">{{ 'speed.tradLabel' | t }}</p>
+              <p class="font-stats mt-2 text-4xl font-semibold text-ink/55 md:text-5xl">{{ 'speed.tradStat' | t }}</p>
+              <ul class="mt-6 space-y-3">
+                @for (key of traditionalKeys; track key) {
+                  <li class="flex items-center gap-2.5 text-[15px] text-ink/55">
+                    <app-icon name="x" class="size-4 shrink-0 text-red-400" />{{ key | t }}
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+          <div appReveal direction="right" [delay]="150">
+            <div class="relative h-full overflow-hidden rounded-3xl bg-forest-950 p-9 shadow-[0_30px_80px_-30px_rgba(15,58,34,0.55)]">
+              <div aria-hidden="true" class="animate-pulse-soft absolute -top-20 -right-20 size-56 rounded-full bg-forest-200/15 blur-3xl"></div>
+              <span class="relative grid size-12 place-items-center rounded-2xl bg-cream/15 text-forest-200">
+                <app-icon name="zap" [size]="24" class="size-6" />
+              </span>
+              <p class="font-labels relative mt-6 text-[13px] font-semibold tracking-[0.18em] text-cream uppercase">{{ 'speed.eleanorLabel' | t }}</p>
+              <p class="text-gradient-gold animate-shimmer font-stats relative mt-2 text-4xl font-semibold md:text-5xl">{{ 'speed.eleanorStat' | t }}</p>
+              <ul class="relative mt-6 space-y-3">
+                @for (key of eleanorKeys; track key) {
+                  <li class="flex items-center gap-2.5 text-[15px] text-cream">
+                    <app-icon name="check" class="size-4 shrink-0 text-forest-300" />{{ key | t }}
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  

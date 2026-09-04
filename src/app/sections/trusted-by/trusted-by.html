@@ -1,0 +1,21 @@
+<section [attr.aria-label]="'trusted.aria' | t" class="border-y border-forest-800/8 bg-forest-50 py-14">
+      <div class="container-site">
+        <div appReveal>
+          <p class="font-labels mb-9 text-center text-[13px] font-semibold tracking-[0.24em] text-forest-700/60 uppercase">
+            {{ 'trusted.label' | t }}
+          </p>
+        </div>
+      </div>
+      <div class="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_16%,black_84%,transparent)]">
+        <div class="animate-marquee flex w-max items-center gap-20 hover:[animation-play-state:paused] motion-reduce:animate-none">
+          @for (logo of logos; track $index) {
+            <span
+              class="font-heading text-xl font-semibold whitespace-nowrap text-forest-900/45 transition-colors duration-300 hover:text-forest-800 md:text-2xl"
+            >
+              {{ logo }}
+            </span>
+          }
+        </div>
+      </div>
+    </section>
+  

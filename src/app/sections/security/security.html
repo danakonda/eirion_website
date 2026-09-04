@@ -1,0 +1,86 @@
+<section id="security" class="relative overflow-hidden py-[100px] md:py-[140px] bg-forest-50 text-ink">
+      <div class="container-site">
+        <div class="mb-16 max-w-3xl md:mb-20 mx-auto text-center">
+          <div appReveal>
+            <h2 class="font-heading text-4xl leading-[1.08] font-semibold tracking-tight text-balance md:text-[56px] text-forest-950">
+              <span class="block">{{ 'sec.title' | t }}</span>
+            </h2>
+          </div>
+          <div appReveal [delay]="150">
+            <p class="mt-6 text-lg leading-relaxed text-ink/65 mx-auto max-w-2xl">
+              {{ 'sec.sub' | t }}
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-8 lg:grid-cols-3">
+          @for (card of cards; track card.id; let i = $index) {
+            <div appReveal [delay]="i * 140">
+              <div class="group h-full overflow-hidden rounded-2xl bg-white shadow-[0_20px_50px_-28px_rgba(18,69,41,0.35)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-26px_rgba(18,69,41,0.4)]">
+                <div aria-hidden="true" class="h-1.5 w-full bg-gradient-to-r from-forest-600 via-forest-500 to-gold-600"></div>
+                <div class="p-8 md:p-9">
+                  <div class="flex items-start gap-6">
+                    <div class="transition-transform duration-500 group-hover:scale-105">
+                      <div class="relative h-[104px] w-[88px] shrink-0 drop-shadow-[0_10px_18px_rgba(18,69,41,0.35)]">
+                        <svg viewBox="0 0 88 104" class="absolute inset-0 h-full w-full" aria-hidden="true">
+                          <defs>
+                            <linearGradient [attr.id]="'shield-' + card.id" x1="0" y1="0" x2="1" y2="1">
+                              <stop offset="0%" stop-color="#16a34a"></stop>
+                              <stop offset="55%" stop-color="#14742f"></stop>
+                              <stop offset="100%" stop-color="#124529"></stop>
+                            </linearGradient>
+                          </defs>
+                          <path d="M44 2 82 14 v38 c0 24 -16 40 -38 50 C22 92 6 76 6 52 V14 Z" [attr.fill]="'url(#shield-' + card.id + ')'" stroke="#d2a92b" stroke-opacity="0.35" stroke-width="1.5"></path>
+                        </svg>
+                        <div class="relative flex h-full flex-col items-center justify-center gap-0.5 pb-2 text-white">
+                          <span class="grid size-7 place-items-center rounded-full border border-white/40">
+                            <app-icon [name]="card.icon" [size]="14" class="size-3.5" />
+                          </span>
+                          <p class="font-labels mt-1 text-[11px] leading-none font-bold tracking-wide whitespace-nowrap">{{ card.name }}</p>
+                          <p class="font-labels text-[6.5px] tracking-[0.22em] text-cream uppercase">{{ card.tagKey | t }}</p>
+                          <div class="mt-0.5 flex gap-[3px]" aria-hidden="true">
+                            <span class="size-[3px] rounded-full bg-forest-300"></span>
+                            <span class="size-[3px] rounded-full bg-forest-300"></span>
+                            <span class="size-[3px] rounded-full bg-forest-300"></span>
+                            <span class="size-[3px] rounded-full bg-forest-300"></span>
+                            <span class="size-[3px] rounded-full bg-forest-300"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pt-2">
+                      <h3 class="font-heading text-[24px] font-semibold tracking-tight text-forest-950">{{ card.name }}</h3>
+                      <p class="mt-1.5 text-[15.5px] leading-snug text-ink/60">{{ card.subtitleKey | t }}</p>
+                    </div>
+                  </div>
+                  <p class="mt-7 text-[15.5px] leading-relaxed text-ink/65">{{ card.descKey | t }}</p>
+                  <div class="mt-8 flex flex-wrap items-center gap-4">
+                    <p class="flex items-baseline gap-3 rounded-2xl bg-forest-50 px-5 py-3.5">
+                      <span class="font-stats text-[22px] leading-none font-bold text-forest-700">{{ card.statKey | t }}</span>
+                      <span class="font-labels text-[12px] font-semibold tracking-[0.12em] text-ink/50 uppercase">{{ card.statLabelKey | t }}</span>
+                    </p>
+                    <p class="flex items-center gap-2 text-[14px] font-medium text-ink/70">
+                      <span class="size-2 rounded-full bg-forest-600" aria-hidden="true"></span>{{ 'sec.verified' | t }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+        <div appReveal [delay]="200">
+          <ul class="mt-16 flex flex-wrap items-center justify-center gap-y-4">
+            @for (key of bottomRowKeys; track key; let i = $index) {
+              <li class="flex items-center">
+                @if (i > 0) {
+                  <span aria-hidden="true" class="mx-6 h-4 w-px bg-forest-800/15"></span>
+                }
+                <span class="flex items-center gap-2.5 text-[15px] text-ink/65">
+                  <app-icon name="check" class="size-4 text-forest-600" />{{ key | t }}
+                </span>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+  

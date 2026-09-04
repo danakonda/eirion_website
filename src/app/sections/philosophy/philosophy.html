@@ -1,0 +1,55 @@
+<section id="philosophy" class="relative overflow-hidden py-[100px] md:py-[140px] bg-forest-800 text-white bg-noise">
+      <div aria-hidden="true" class="animate-aurora pointer-events-none absolute right-[-8%] bottom-[-10%] h-[45vh] w-[38vw] rounded-full bg-forest-500/15 blur-[140px]"></div>
+      <div class="container-site relative">
+        <div appReveal>
+          <figure class="mx-auto mb-24 max-w-3xl text-center">
+            <span aria-hidden="true" class="font-heading text-8xl leading-none text-cream/25">&ldquo;</span>
+            <blockquote class="font-heading -mt-8 text-2xl leading-snug font-medium text-balance text-cream md:text-[32px]">
+              {{ 'philo.quote' | t }}
+            </blockquote>
+            <figcaption class="font-labels mt-6 text-[14px] tracking-[0.2em] text-cream uppercase">{{ 'philo.attr' | t }}</figcaption>
+          </figure>
+        </div>
+        <div class="mb-16 max-w-3xl md:mb-20 mx-auto text-center">
+          <div appReveal>
+            <p class="font-labels mb-5 text-[13px] font-semibold tracking-[0.22em] uppercase text-cream">
+              {{ 'philo.eyebrow' | t }}
+            </p>
+          </div>
+          <div appReveal [delay]="120">
+            <h2 class="font-heading text-4xl leading-[1.08] font-semibold tracking-tight text-balance md:text-[56px] text-white">
+              <span class="block">{{ 'philo.title1' | t }}</span><span class="block">{{ 'philo.title2' | t }}</span>
+            </h2>
+          </div>
+          <div appReveal [delay]="240">
+            <p class="mt-6 text-lg leading-relaxed text-cream mx-auto max-w-2xl">
+              {{ 'philo.sub' | t }}
+            </p>
+          </div>
+        </div>
+        <div class="grid gap-7 md:grid-cols-3">
+          @for (card of cards; track card.titleKey; let i = $index) {
+            <div appReveal [delay]="i * 140">
+              <div class="group glass-dark relative h-full overflow-hidden rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-cream/35">
+                <div aria-hidden="true" class="absolute -top-16 -right-16 size-40 rounded-full bg-forest-300/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100 md:opacity-0"></div>
+                <span class="grid size-13 place-items-center rounded-2xl border border-cream/25 bg-cream/10 text-forest-200 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3">
+                  <app-icon [name]="card.icon" [size]="24" class="size-6" />
+                </span>
+                <h3 class="font-heading mt-6 text-[22px] font-semibold tracking-tight text-white">{{ card.titleKey | t }}</h3>
+                <div class="mt-5 space-y-5">
+                  <div>
+                    <p class="font-labels text-[11.5px] font-semibold tracking-[0.18em] text-forest-300 uppercase">{{ 'philo.principleLabel' | t }}</p>
+                    <p class="mt-1.5 text-[15px] leading-relaxed text-cream">{{ card.principleKey | t }}</p>
+                  </div>
+                  <div class="border-t border-white/10 pt-5">
+                    <p class="font-labels text-[11.5px] font-semibold tracking-[0.18em] text-cream uppercase">{{ 'philo.appliesLabel' | t }}</p>
+                    <p class="mt-1.5 text-[15px] leading-relaxed text-cream">{{ card.appKey | t }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  

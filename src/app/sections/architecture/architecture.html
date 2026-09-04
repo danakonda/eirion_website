@@ -1,0 +1,56 @@
+<section id="architecture" class="relative overflow-hidden py-[100px] md:py-[140px] bg-forest-800 text-white bg-noise !py-14 md:!py-16">
+  <div class="bg-grid-dark absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_75%)]" aria-hidden="true"></div>
+  <div aria-hidden="true" class="animate-aurora pointer-events-none absolute top-0 left-1/4 h-[50vh] w-[40vw] rounded-full bg-forest-600/18 blur-[130px]"></div>
+  <div class="container-site relative flex flex-col lg:min-h-[calc(100svh-8.5rem)] lg:justify-between">
+    <div appReveal>
+      <div class="mx-auto max-w-3xl text-center">
+        <p class="font-labels mb-3 text-[12px] font-semibold tracking-[0.22em] text-cream uppercase">{{ 'arch.eyebrow' | t }}</p>
+        <h2 class="font-heading text-3xl leading-[1.1] font-semibold tracking-tight text-balance text-white md:text-[42px]">{{ 'arch.title' | t }}</h2>
+        <p class="mx-auto mt-3.5 max-w-2xl text-[15.5px] leading-relaxed text-cream">
+          {{ 'arch.sub' | t }}
+        </p>
+      </div>
+    </div>
+    <div class="mt-5 grid items-center gap-6 lg:mt-3 lg:min-h-0 lg:flex-1 lg:grid-cols-[minmax(150px,180px)_1fr_minmax(150px,180px)] lg:items-stretch lg:gap-7">
+      <div class="lg:self-center">
+        <h3 class="font-labels text-[11.5px] font-semibold tracking-[0.2em] uppercase text-gold-400">{{ 'arch.internal' | t }}</h3>
+        <ul class="mt-3.5 grid grid-cols-2 gap-2 lg:grid-cols-1 lg:gap-1.5">
+          @for (agent of internalAgents; track agent.nameKey) {
+            <li class="flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-2 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.08]">
+              <app-icon [name]="agent.icon" class="size-3.5 shrink-0 text-gold-400" />
+              <span class="text-[12.5px] leading-tight font-medium text-cream">{{ agent.nameKey | t }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+      <div #canvasWrap class="relative hidden aspect-[16/10] w-full lg:block lg:aspect-auto lg:h-full lg:min-h-0">
+        @if (near()) {
+          <app-agent-scene />
+        }
+        <p class="font-labels pointer-events-none absolute inset-x-0 bottom-1 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] tracking-[0.14em] text-cream/70 uppercase">
+          <span class="inline-flex items-center gap-1.5">
+            <app-icon name="mouse" class="size-3" />{{ 'arch.dragRotate' | t }}
+          </span>
+          <span aria-hidden="true" class="text-cream/40">&middot;</span>
+          <span>{{ 'arch.holdCtrl' | t }} <kbd class="rounded border border-cream/30 px-1 font-sans">Ctrl</kbd> {{ 'arch.scrollZoom' | t }}</span>
+        </p>
+      </div>
+      <div class="lg:self-center lg:text-right">
+        <h3 class="font-labels text-[11.5px] font-semibold tracking-[0.2em] uppercase text-cream">{{ 'arch.external' | t }}</h3>
+        <ul class="mt-3.5 grid grid-cols-2 gap-2 lg:grid-cols-1 lg:gap-1.5">
+          @for (agent of externalAgents; track agent.nameKey) {
+            <li class="flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-2.5 py-2 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.08] lg:flex-row-reverse lg:text-right">
+              <app-icon [name]="agent.icon" class="size-3.5 shrink-0 text-cream" />
+              <span class="text-[12.5px] leading-tight font-medium text-cream">{{ agent.nameKey | t }}</span>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+    <div appReveal [delay]="150">
+      <p class="font-labels mt-5 lg:mt-3 text-center text-[12px] tracking-[0.16em] text-cream/85 uppercase">
+        {{ 'arch.footer' | t }}
+      </p>
+    </div>
+  </div>
+</section>

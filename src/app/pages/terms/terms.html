@@ -1,0 +1,120 @@
+<main id="main" class="bg-cream">
+      <section class="bg-noise relative overflow-hidden bg-band pt-36 pb-20 text-white md:pt-40 md:pb-24">
+        <div aria-hidden="true" class="bg-grid-dark absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_78%)]"></div>
+        <div aria-hidden="true" class="absolute -top-36 right-[8%] size-80 rounded-full bg-forest-300/20 blur-[110px]"></div>
+        <div class="container-site relative">
+          <div appReveal>
+            <a
+              routerLink="/"
+              class="font-labels mb-10 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/20 bg-forest-950/20 px-4 text-[13px] font-semibold tracking-[0.08em] text-cream transition-colors hover:border-white/40 hover:bg-forest-950/30"
+            >
+              <app-icon name="arrow-left" class="size-4" />Back to home</a
+            >
+          </div>
+          <div class="max-w-4xl">
+            <div appReveal [delay]="100">
+              <p class="font-labels mb-4 flex items-center gap-2 text-[12px] font-semibold tracking-[0.22em] text-cream uppercase">
+                <app-icon name="file-text" class="size-4" />Legal
+              </p>
+            </div>
+            <div appReveal [delay]="180">
+              <h1 class="font-heading text-[clamp(42px,7vw,78px)] leading-[1.02] font-semibold tracking-[-0.045em] text-balance">
+                Terms of Service
+              </h1>
+            </div>
+            <div appReveal [delay]="260">
+              <p class="mt-6 max-w-2xl text-[17px] leading-relaxed text-cream md:text-[19px]">
+                Eirion Incorporated terms governing access to and use of our services, software,
+                products, and website.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 md:py-24">
+        <div class="container-site grid items-start gap-10 lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-16">
+          <aside class="lg:sticky lg:top-28">
+            <details class="group rounded-2xl border border-forest-800/10 bg-white p-5 shadow-[0_18px_50px_-36px_rgba(10,46,24,0.28)] lg:hidden">
+              <summary class="font-labels flex min-h-11 cursor-pointer list-none items-center justify-between text-[13px] font-semibold tracking-[0.12em] text-forest-900 uppercase">
+                <span>On this page</span>
+                <app-icon name="chevron-down" class="size-4 transition-transform duration-200 group-open:rotate-180" />
+              </summary>
+              <nav aria-label="Terms sections" class="mt-5">
+                <ol class="space-y-3">
+                  @for (item of toc; track item.id) {
+                    <li>
+                      <a
+                        [href]="'#' + item.id"
+                        class="flex min-h-11 items-start gap-3 py-2 text-[14px] leading-snug text-ink/70 transition-colors hover:text-forest-700"
+                      >
+                        <span class="font-stats text-forest-600">{{ item.num }}</span>{{ item.label }}</a
+                      >
+                    </li>
+                  }
+                </ol>
+              </nav>
+            </details>
+            <nav aria-label="Terms sections" class="hidden max-h-[calc(100vh-9rem)] overflow-y-auto rounded-2xl border border-forest-800/10 bg-white p-5 shadow-[0_18px_50px_-36px_rgba(10,46,24,0.28)] lg:block">
+              <p class="font-labels mb-5 text-[12px] font-semibold tracking-[0.16em] text-forest-800 uppercase">On this page</p>
+              <ol class="space-y-3.5">
+                @for (item of toc; track item.id) {
+                  <li>
+                    <a
+                      [href]="'#' + item.id"
+                      class="group flex min-h-10 items-start gap-3 py-1.5 text-[13px] leading-snug text-ink/70 transition-colors hover:text-forest-700"
+                    >
+                      <span class="font-stats text-forest-500 transition-colors group-hover:text-forest-700">{{ item.num }}</span
+                      >{{ item.label }}</a
+                    >
+                  </li>
+                }
+              </ol>
+            </nav>
+          </aside>
+
+          <article class="min-w-0 rounded-[28px] border border-forest-800/10 bg-white px-6 py-8 shadow-[0_28px_80px_-54px_rgba(10,46,24,0.34)] sm:px-9 md:py-12 lg:px-14">
+            <header class="border-b border-forest-800/10 pb-9">
+              <p class="font-labels text-[12px] font-semibold tracking-[0.17em] text-forest-600 uppercase">Eirion Incorporated</p>
+              <h2 class="font-heading mt-3 text-[30px] font-semibold tracking-[-0.035em] text-forest-950 md:text-[38px]">Terms of Use</h2>
+              <p class="mt-4 max-w-2xl text-[16px] leading-relaxed text-ink/70">
+                Please read these terms carefully. They explain the legal agreement between you and
+                Eirion Incorporated when you use the Services.
+              </p>
+            </header>
+            <div class="divide-y divide-forest-800/10">
+              @for (sec of sections; track sec.id) {
+                <section [id]="sec.id" class="scroll-mt-28 py-10 first:pt-10 md:py-12">
+                  <div class="mb-6 grid grid-cols-[42px_minmax(0,1fr)] items-start gap-3 md:grid-cols-[52px_minmax(0,1fr)] md:gap-4">
+                    <span class="font-stats grid size-10 place-items-center rounded-xl bg-forest-100 text-[13px] font-semibold text-forest-800 md:size-12 md:text-[14px]">{{
+                      sec.num
+                    }}</span>
+                    <h2 class="font-heading pt-1 text-[22px] leading-tight font-semibold tracking-[-0.025em] text-forest-950 md:text-[26px]">
+                      {{ sec.title }}
+                    </h2>
+                  </div>
+                  <div class="max-w-[76ch] space-y-4 text-[16px] leading-[1.75] text-ink/75">
+                    @for (para of sec.paras; track $index) {
+                      <p>@for (seg of para; track $index) {@if (isLink(seg)) {<a [href]="seg.href" class="font-semibold text-forest-700 underline decoration-forest-300 underline-offset-4 transition-colors hover:text-forest-500">{{ seg.t }}</a>} @else {{{ seg }}}}</p>
+                    }
+                  </div>
+                </section>
+              }
+            </div>
+            <footer class="mt-4 flex flex-col gap-4 rounded-2xl bg-forest-50 p-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p class="font-labels text-[12px] font-semibold tracking-[0.14em] text-forest-700 uppercase">Questions about these terms?</p>
+                <p class="mt-1 text-[14px] text-ink/70">Contact the Eirion support team.</p>
+              </div>
+              <a
+                href="mailto:support@eirion.ai"
+                class="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-forest-800 px-5 text-[14px] font-semibold text-white transition-colors hover:bg-forest-700"
+              >
+                <app-icon name="mail" class="size-4" />support&#64;eirion.ai</a
+              >
+            </footer>
+          </article>
+        </div>
+      </section>
+    </main>
+  

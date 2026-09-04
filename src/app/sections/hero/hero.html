@@ -1,0 +1,202 @@
+<section class="bg-noise relative flex min-h-svh items-center overflow-hidden bg-band text-white [@media(min-height:1100px)]:min-h-[980px]">
+  <div aria-hidden="true" class="absolute inset-0">
+    <div class="bg-grid-dark absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_35%,transparent_78%)]"></div>
+    <div class="animate-aurora absolute -top-1/4 left-[-10%] h-[65vh] w-[55vw] rounded-full bg-forest-600/25 blur-[130px]"></div>
+    <div class="animate-aurora absolute right-[-12%] bottom-[-20%] h-[60vh] w-[50vw] rounded-full bg-forest-500/20 blur-[140px] [animation-delay:-6s]"></div>
+    <div class="animate-aurora absolute top-[30%] right-[18%] h-[36vh] w-[26vw] rounded-full bg-forest-400/14 blur-[120px] [animation-delay:-11s]"></div>
+    <div class="absolute -top-32 left-1/2 h-[60vh] w-px -translate-x-40 rotate-[18deg] bg-gradient-to-b from-cream/35 to-transparent"></div>
+    <div class="absolute -top-32 left-1/2 h-[50vh] w-px translate-x-52 rotate-[-14deg] bg-gradient-to-b from-forest-300/30 to-transparent"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(13,61,32,0.42)_100%)]"></div>
+  </div>
+
+  <div class="container-site relative grid items-center gap-16 pt-36 pb-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:pt-28">
+    <div class="max-w-2xl">
+      <p class="anim-rise font-labels mb-7 inline-flex items-center gap-2.5 rounded-full border border-cream/25 bg-forest-300/10 px-4 py-2 text-[12px] font-semibold tracking-[0.2em] text-cream uppercase" style="animation-delay: 0.05s">
+        <span class="relative flex size-1.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-500 opacity-70"></span>
+          <span class="relative inline-flex size-1.5 rounded-full bg-gold-500"></span>
+        </span>
+        {{ 'hero.badge' | t }}
+      </p>
+      <h1 class="font-heading text-[clamp(46px,7.2vw,92px)] leading-[1.06] font-semibold tracking-tight">
+        <span class="inline-block">
+          <span class="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-bottom">
+            <span class="anim-word" style="animation-delay: 0.1s">{{ 'hero.title1' | t }}</span>
+          </span>
+        </span>
+        <br />
+        <span class="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-bottom">
+          <span class="anim-word text-gradient-gold animate-shimmer" style="animation-delay: 0.28s">{{ 'hero.title2' | t }}</span>
+        </span>
+      </h1>
+      <p class="anim-rise font-labels mt-6 text-lg font-medium text-cream md:text-xl" style="animation-delay: 0.4s">
+        <span class="relative inline-grid overflow-hidden align-bottom">
+          <span class="invisible col-start-1 row-start-1 whitespace-nowrap">{{ swapKeys[0] | t }}</span>
+          <span class="col-start-1 row-start-1 whitespace-nowrap" [class.swap-active]="swapIndex() === 0" [class.swap-leaving]="swapIndex() === 1">{{ swapKeys[0] | t }}</span>
+          <span class="col-start-1 row-start-1 whitespace-nowrap" [class.swap-active]="swapIndex() === 1" [class.swap-leaving]="swapIndex() === 0">{{ swapKeys[1] | t }}</span>
+        </span>
+      </p>
+      <p class="anim-rise mt-6 max-w-xl text-[17px] leading-relaxed text-cream md:text-lg" style="animation-delay: 0.18s">
+        {{ 'hero.sub' | t }}
+      </p>
+      <div class="anim-scale mt-10 flex flex-wrap items-center gap-4" style="animation-delay: 0.5s">
+        <a
+          href="#platform"
+          class="group font-labels inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-wide transition-[background-position,background-color,border-color,box-shadow] duration-500 px-9 py-4 text-[16px] bg-gradient-to-r bg-cream text-forest-800 shadow-[0_8px_30px_-6px_rgba(10,46,24,0.35)] hover:bg-right"
+          tabindex="0"
+        >
+          {{ 'hero.explore' | t }}
+          <app-icon name="arrow-right" [size]="16" class="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </a>
+        <a
+          href="#architecture"
+          class="group font-labels inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-wide transition-[background-position,background-color,border-color,box-shadow] duration-500 px-9 py-4 text-[16px] border border-white/20 text-white backdrop-blur-sm hover:border-cream/60 hover:bg-white/5"
+          tabindex="0"
+          >{{ 'hero.meetEllie' | t }}</a
+        >
+      </div>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-[460px] sm:max-w-[600px] lg:max-w-none lg:scale-[1.14] xl:scale-[1.28] xl:translate-x-3">
+      <div class="pointer-events-none absolute inset-0 z-0" style="transform-origin: 55% 48%">
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0 z-0">
+          <svg viewBox="0 0 400 400" class="size-full overflow-visible">
+            <circle cx="220" cy="190" r="114" fill="url(#orbitDisc)"></circle>
+            <g class="animate-spin-slow" style="transform-origin: 220px 190px">
+              <circle cx="220" cy="190" r="132" fill="none" stroke="#eef8e6" stroke-opacity="0.7" stroke-width="1.7" stroke-dasharray="3 12" stroke-linecap="round"></circle>
+            </g>
+            <g class="animate-orbit-reverse" style="transform-origin: 220px 190px">
+              <circle cx="220" cy="190" r="118" fill="none" stroke="#fbf9f1" stroke-opacity="0.34" stroke-width="1"></circle>
+              <line x1="329" y1="190" x2="338" y2="190" stroke="#eef8e6" stroke-opacity="0.64" stroke-width="1.6" stroke-linecap="round"></line>
+              <line x1="331.8498" y1="206.0816" x2="336.7989" y2="206.7932" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="328.4227" y1="221.8358" x2="333.2202" y2="223.2444" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="322.7884" y1="236.9419" x2="327.3366" y2="239.019" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="311.6966" y1="248.9298" x2="319.2679" y2="253.7956" stroke="#eef8e6" stroke-opacity="0.64" stroke-width="1.6" stroke-linecap="round"></line>
+              <line x1="305.3997" y1="263.9993" x2="309.1784" y2="267.2736" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="293.9993" y1="275.3997" x2="297.2736" y2="279.1784" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="281.0924" y1="285.0616" x2="283.7956" y2="289.2679" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="265.2802" y1="289.1499" x2="269.019" y2="297.3366" stroke="#eef8e6" stroke-opacity="0.64" stroke-width="1.6" stroke-linecap="round"></line>
+              <line x1="250.5551" y1="287.8689" x2="253.4639" y2="296.2903" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="234.8987" y1="284.6762" x2="238.5652" y2="292.8365" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="219.9957" y1="279.3529" x2="225.5967" y2="287.6754" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="105.0001" y1="190" x2="96.0001" y2="190" stroke="#eef8e6" stroke-opacity="0.64" stroke-width="1.6" stroke-linecap="round"></line>
+              <line x1="108.1503" y1="173.9184" x2="103.2012" y2="173.2068" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="111.5774" y1="158.1642" x2="106.7799" y2="156.7556" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="117.2117" y1="143.0581" x2="112.6635" y2="140.981" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="128.3035" y1="131.0702" x2="120.7322" y2="126.2044" stroke="#eef8e6" stroke-opacity="0.64" stroke-width="1.6" stroke-linecap="round"></line>
+              <line x1="134.6004" y1="116.0007" x2="130.8217" y2="112.7264" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="146.0008" y1="104.6003" x2="142.7265" y2="100.8216" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="158.9077" y1="94.9384" x2="156.2045" y2="90.7321" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="174.7199" y1="90.8501" x2="170.9811" y2="82.6634" stroke="#eef8e6" stroke-opacity="0.64" stroke-width="1.6" stroke-linecap="round"></line>
+              <line x1="189.445" y1="92.1311" x2="186.5362" y2="83.7097" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="205.1014" y1="95.3238" x2="201.4349" y2="87.1635" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+              <line x1="220.0044" y1="100.6471" x2="214.4034" y2="92.3246" stroke="#eef8e6" stroke-opacity="0.36" stroke-width="1" stroke-linecap="round"></line>
+            </g>
+            <defs>
+              <radialGradient id="orbitDisc">
+                <stop offset="0%" stop-color="#4bcb7c" stop-opacity="0.14"></stop>
+                <stop offset="60%" stop-color="#15803d" stop-opacity="0.07"></stop>
+                <stop offset="100%" stop-color="#0d3d20" stop-opacity="0"></stop>
+              </radialGradient>
+            </defs>
+          </svg>
+        </div>
+        <div aria-hidden="true" class="absolute inset-x-[12%] top-[8%] bottom-[4%] rounded-full bg-forest-400/12 blur-[70px]"></div>
+      </div>
+
+      <div>
+        <div class="anim-scale relative" style="animation-delay: 0.35s">
+          <div aria-hidden="true" class="animate-pulse-soft absolute bottom-[2%] left-1/2 h-[16%] w-[46%] -translate-x-1/2 rounded-[50%] bg-forest-400/25 blur-[42px]"></div>
+          <img
+            src="assets/ellie-hero-big.webp"
+            [alt]="'hero.imgAlt' | t"
+            width="970"
+            height="1024"
+            decoding="async"
+            class="h-auto w-full [mask-image:linear-gradient(to_bottom,black_72%,transparent_97%)]"
+          />
+        </div>
+      </div>
+
+      <!-- floating cards layer -->
+      <div class="absolute inset-x-0 top-0 z-30 aspect-[970/1024] [container-type:inline-size]">
+        <div aria-hidden="true" class="absolute inset-0">
+          <div class="absolute overflow-hidden rounded-[2.6cqw] border border-forest-200/80 bg-white shadow-[0_2.6cqw_6cqw_-2cqw_rgba(18,69,41,0.3)] left-[1.5%] top-[16%] w-[22.5%] p-[2.2cqw] -rotate-2">
+            <p class="font-labels flex items-center gap-[1.3cqw] text-[2.3cqw] font-semibold tracking-[0.08em] text-slate-500 uppercase">
+              <app-icon name="sparkles" class="size-[2.7cqw] text-forest-600" />{{ 'hero.coachTitle' | t }}
+            </p>
+            <p class="mt-[1cqw] text-[2.1cqw] text-slate-400">{{ 'hero.coachSub' | t }}</p>
+            <ul class="mt-[1.3cqw] space-y-[1.2cqw]">
+              @for (key of coachKeys; track key) {
+                <li class="flex items-center justify-between text-[2.4cqw] font-medium text-slate-700">
+                  {{ key | t }}<app-icon name="check" class="size-[2.6cqw] text-emerald-500" />
+                </li>
+              }
+            </ul>
+          </div>
+
+          <div class="absolute overflow-hidden rounded-[2.6cqw] border border-forest-200/80 bg-white shadow-[0_2.6cqw_6cqw_-2cqw_rgba(18,69,41,0.3)] left-[63%] top-[11%] w-[25%] p-[2.2cqw] rotate-1">
+            <p class="font-labels flex items-center gap-[1.3cqw] text-[2.3cqw] font-semibold tracking-[0.08em] text-slate-500 uppercase whitespace-nowrap">
+              <app-icon name="heart-pulse" class="size-[2.6cqw] shrink-0 text-forest-600" /><span class="text-[1.15cqw] tracking-[0.02em]">{{ 'hero.scoreLabel' | t }}</span>
+            </p>
+            <div class="mt-[1.4cqw] flex items-center gap-[1.6cqw]">
+              <div class="relative size-[8cqw] shrink-0">
+                <svg viewBox="0 0 100 100" class="size-full -rotate-90" aria-hidden="true">
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="#d9f5e1" stroke-width="10"></circle>
+                  <circle cx="50" cy="50" r="44" fill="none" stroke="#16a34a" stroke-width="10" stroke-linecap="round" stroke-dasharray="276.46" stroke-dashoffset="276.46" [style.stroke-dashoffset]="healthRingOffset()"></circle>
+                </svg>
+                <span class="font-stats absolute inset-0 grid place-items-center text-[2.5cqw] font-semibold text-slate-800">92</span>
+              </div>
+              <div class="min-w-0">
+                <p class="text-[2.3cqw] font-semibold text-slate-700">{{ 'hero.excellent' | t }}</p>
+                <p class="text-[1.8cqw] leading-snug text-forest-600">{{ 'hero.trajectory' | t }}</p>
+              </div>
+            </div>
+            <svg viewBox="0 0 100 26" class="mt-[1.3cqw] w-full" aria-hidden="true">
+              <path d="M2 22 C14 20 18 14 28 15 S 46 20 56 13 74 6 98 4" fill="none" stroke="#3cc46b" stroke-width="2.5" stroke-linecap="round"></path>
+            </svg>
+          </div>
+
+          <div class="absolute overflow-hidden rounded-[2.6cqw] border border-forest-200/80 bg-white shadow-[0_2.6cqw_6cqw_-2cqw_rgba(18,69,41,0.3)] left-[0.5%] top-[62%] w-[21%] p-[2.2cqw] -rotate-2">
+            <p class="font-labels flex items-center gap-[1.3cqw] text-[2.3cqw] font-semibold tracking-[0.08em] text-slate-500 uppercase">
+              <app-icon name="heart-pulse" class="size-[2.6cqw] text-rose-500" />{{ 'hero.rpmTitle' | t }}
+            </p>
+            <p class="mt-[1.3cqw]"><span class="font-stats text-[4.4cqw] font-semibold text-slate-800">72</span><span class="ml-[0.8cqw] text-[2.2cqw] text-slate-400">bpm</span></p>
+            <p class="mt-[1.1cqw] flex items-center gap-[1cqw] rounded-full bg-emerald-50 px-[1.6cqw] py-[0.7cqw] text-[2.1cqw] font-medium text-emerald-600">
+              <span class="relative inline-flex size-[1.4cqw] rounded-full bg-emerald-500"></span>{{ 'hero.stable' | t }}
+            </p>
+          </div>
+
+          <div class="absolute overflow-hidden rounded-[2.6cqw] border border-forest-200/80 bg-white shadow-[0_2.6cqw_6cqw_-2cqw_rgba(18,69,41,0.3)] left-[72.5%] top-[40.5%] w-[27%] p-[2.2cqw] rotate-1">
+            <p class="font-labels flex items-center gap-[1.3cqw] text-[2.3cqw] font-semibold tracking-[0.08em] text-slate-500 uppercase">
+              <app-icon name="shield-check" class="size-[2.6cqw] text-teal-500" />{{ 'hero.careTitle' | t }}
+            </p>
+            <p class="mt-[1.3cqw] text-[2.2cqw] text-slate-500">{{ 'hero.adherence' | t }}</p>
+            <p class="font-stats mt-[0.5cqw] text-[4cqw] font-semibold text-slate-800">100%</p>
+            <div class="mt-[1cqw] h-[1.3cqw] overflow-hidden rounded-full bg-forest-100">
+              <div class="h-full w-full rounded-full bg-gradient-to-r from-forest-500 to-forest-400"></div>
+            </div>
+          </div>
+
+          <div class="absolute left-[21.8%] top-[52.8%] grid size-[16.5cqw] place-items-center rounded-full bg-gradient-to-br from-forest-400 via-forest-600 to-forest-800 text-center shadow-[0_0_6.5cqw_1.3cqw_rgba(22,163,74,0.6)] ring-[0.45cqw] ring-white/70">
+            <div>
+              <p class="font-heading text-[3.3cqw] leading-none font-bold text-white">{{ 'hero.mcp' | t }}</p>
+              <p class="font-labels mt-[0.8cqw] text-[1.65cqw] leading-tight font-semibold tracking-[0.06em] text-forest-100 uppercase">{{ 'hero.mcpSub1' | t }}<br />{{ 'hero.mcpSub2' | t }}</p>
+            </div>
+          </div>
+
+          <div class="absolute overflow-hidden rounded-[2.6cqw] border border-forest-200/80 bg-white shadow-[0_2.6cqw_6cqw_-2cqw_rgba(18,69,41,0.3)] left-[4%] top-[6.5%] flex items-center gap-[1.3cqw] p-[1.7cqw]">
+            <app-icon name="dna" class="size-[2.9cqw] text-forest-600" />
+            <p class="text-[2.2cqw] font-semibold whitespace-nowrap text-slate-700">3.2M <span class="font-normal text-slate-400">{{ 'hero.markersSuffix' | t }}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div aria-hidden="true" class="absolute bottom-7 left-1/2 hidden -translate-x-1/2 md:block transition-opacity duration-700" [class.opacity-0]="!showMouse()" [class.opacity-100]="showMouse()">
+    <div class="flex h-9 w-5.5 items-start justify-center rounded-full border border-white/25 p-1.5">
+      <div class="size-1.5 rounded-full bg-cream"></div>
+    </div>
+  </div>
+</section>

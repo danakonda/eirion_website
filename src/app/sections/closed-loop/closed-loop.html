@@ -1,0 +1,43 @@
+
+    <section class="relative overflow-hidden py-[100px] md:py-[140px] bg-cream text-ink">
+      <div class="container-site">
+        <div class="mb-16 max-w-3xl md:mb-20 mx-auto text-center">
+          <div appReveal>
+            <h2 class="font-heading text-4xl leading-[1.08] font-semibold tracking-tight text-balance md:text-[56px] text-forest-950">
+              <span class="block">{{ 'closed.title' | t }}</span>
+            </h2>
+          </div>
+          <div appReveal [delay]="150">
+            <p class="mt-6 text-lg leading-relaxed text-ink/65 mx-auto max-w-2xl">
+              {{ 'closed.sub' | t }}
+            </p>
+          </div>
+        </div>
+        <div class="relative">
+          <div aria-hidden="true" class="absolute top-0 left-1/2 hidden h-full w-px -translate-x-1/2 bg-forest-800/10 lg:block">
+            <div class="h-full w-full origin-top bg-gradient-to-b from-forest-500 via-forest-300 to-forest-500" [style.transform]="'scaleY(' + progress() + ')'"></div>
+          </div>
+          <div class="grid gap-6 lg:gap-y-10">
+            @for (step of steps; track step.num; let i = $index) {              <div appReveal [delay]="(i % 2) * 120" class="lg:w-[calc(50%-48px)]" [class.lg:ml-auto]="i % 2 === 1">
+                <div class="group relative rounded-3xl border border-forest-800/10 bg-white p-7 shadow-[0_16px_44px_-26px_rgba(18,69,41,0.22)] transition-all duration-500 hover:-translate-y-1.5 hover:border-forest-500/40 hover:shadow-[0_24px_60px_-24px_rgba(30,178,87,0.28)]">
+                  <span
+                    aria-hidden="true"
+                    class="absolute top-1/2 hidden size-3.5 -translate-y-1/2 rounded-full border-[3px] border-cream bg-forest-500 shadow-[0_0_0_4px_rgba(22,163,74,0.15)] transition-colors duration-300 group-hover:bg-forest-500 lg:block"
+                    [class.right-[-55px]]="i % 2 === 0"
+                    [class.left-[-55px]]="i % 2 === 1"
+                  ></span>
+                  <div class="flex items-center gap-5">
+                    <span class="font-stats text-gradient-forest text-4xl font-semibold">{{ step.num }}</span>
+                    <div>
+                      <h3 class="font-heading text-xl font-semibold tracking-tight text-forest-950">{{ step.titleKey | t }}</h3>
+                      <p class="mt-1.5 text-[15px] leading-relaxed text-ink/60">{{ step.descKey | t }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  

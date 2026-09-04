@@ -1,0 +1,162 @@
+<main id="main">
+      <section class="bg-noise relative overflow-hidden bg-band pt-36 pb-20 text-white md:pt-40">
+        <div aria-hidden="true" class="bg-grid-dark absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_25%,transparent_75%)]"></div>
+        <div class="container-site relative text-center">
+          <div appReveal>
+            <p class="font-labels mb-4 text-[12px] font-semibold tracking-[0.22em] text-cream uppercase">{{ 'contact.eyebrow' | t }}</p>
+          </div>
+          <div appReveal [delay]="120">
+            <h1 class="font-heading text-[clamp(34px,5vw,58px)] leading-[1.06] font-semibold tracking-tight text-balance">
+              {{ 'contact.title1' | t }}<br /><span class="text-gradient-gold animate-shimmer">{{ 'contact.title2' | t }}</span>
+            </h1>
+          </div>
+          <div appReveal [delay]="240">
+            <p class="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-cream">
+              {{ 'contact.sub' | t }}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-cream py-[90px] md:py-[110px]">
+        <div class="container-site grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-14">
+          <div appReveal>
+            <form
+              class="rounded-3xl border border-forest-800/10 bg-white p-7 shadow-[0_20px_50px_-30px_rgba(18,69,41,0.3)] md:p-9"
+              novalidate
+              (submit)="onSubmit($event)"
+            >
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div class="sm:col-span-1">
+                  <label for="name" class="font-labels mb-2 block text-[12.5px] font-semibold tracking-[0.14em] text-forest-600 uppercase"
+                    >{{ 'contact.name' | t }} <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="name"
+                    [value]="name()"
+                    (input)="setField('name', $any($event.target).value)"
+                    [attr.aria-invalid]="errors().name ? true : null"
+                    [attr.aria-describedby]="errors().name ? 'name-error' : null"
+                    [class]="inputClass(errors().name)"
+                    [placeholder]="'contact.namePh' | t"
+                  />
+                  @if (errors().name) {
+                    <p id="name-error" class="mt-1.5 text-[13px] text-red-600">{{ errors().name }}</p>
+                  }
+                </div>
+                <div class="sm:col-span-1">
+                  <label for="email" class="font-labels mb-2 block text-[12.5px] font-semibold tracking-[0.14em] text-forest-600 uppercase"
+                    >{{ 'contact.email' | t }} <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="email"
+                    type="email"
+                    [value]="email()"
+                    (input)="setField('email', $any($event.target).value)"
+                    [attr.aria-invalid]="errors().email ? true : null"
+                    [attr.aria-describedby]="errors().email ? 'email-error' : null"
+                    [class]="inputClass(errors().email)"
+                    [placeholder]="'contact.emailPh' | t"
+                  />
+                  @if (errors().email) {
+                    <p id="email-error" class="mt-1.5 text-[13px] text-red-600">{{ errors().email }}</p>
+                  }
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="org" class="font-labels mb-2 block text-[12.5px] font-semibold tracking-[0.14em] text-forest-600 uppercase"
+                    >{{ 'contact.org' | t }}</label
+                  >
+                  <input
+                    id="org"
+                    [value]="org()"
+                    (input)="setField('org', $any($event.target).value)"
+                    [class]="inputClass()"
+                    [placeholder]="'contact.orgPh' | t"
+                  />
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="message" class="font-labels mb-2 block text-[12.5px] font-semibold tracking-[0.14em] text-forest-600 uppercase"
+                    >{{ 'contact.message' | t }} <span aria-hidden="true">*</span></label
+                  >
+                  <textarea
+                    id="message"
+                    rows="5"
+                    [value]="message()"
+                    (input)="setField('message', $any($event.target).value)"
+                    [attr.aria-invalid]="errors().message ? true : null"
+                    [attr.aria-describedby]="errors().message ? 'message-error' : null"
+                    [class]="inputClass(errors().message) + ' resize-y'"
+                    [placeholder]="'contact.messagePh' | t"
+                  ></textarea>
+                  @if (errors().message) {
+                    <p id="message-error" class="mt-1.5 text-[13px] text-red-600">{{ errors().message }}</p>
+                  }
+                </div>
+              </div>
+              <p class="mt-6 text-[13.5px] leading-relaxed text-ink/70">
+                {{ 'contact.note' | t }}
+              </p>
+              <div class="mt-4 flex flex-wrap gap-3">
+                <button
+                  type="submit"
+                  class="group font-labels inline-flex items-center gap-2 rounded-full bg-forest-700 px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_28px_-10px_rgba(18,69,41,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-forest-600 active:scale-[0.98]"
+                >
+                  <app-icon name="mail" class="size-4" />{{ 'contact.sendEmail' | t }}<app-icon
+                    name="arrow-right"
+                    class="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </button>
+                <button
+                  type="button"
+                  (click)="sendWhatsApp()"
+                  class="font-labels inline-flex items-center gap-2 rounded-full border-2 border-forest-600 px-6 py-3 text-[15px] font-semibold text-forest-700 transition-all duration-300 hover:-translate-y-0.5 hover:bg-forest-50 active:scale-[0.98]"
+                >
+                  <app-icon name="message-circle" class="size-4" />{{ 'contact.sendWhats' | t }}
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div appReveal [delay]="150">
+            <div class="flex flex-col gap-4">
+              <h2 class="font-heading text-[22px] font-semibold tracking-tight text-forest-950">{{ 'contact.sideTitle' | t }}</h2>
+              <a
+                href="mailto:info@eirionai.com"
+                class="group flex items-start gap-4 rounded-2xl border border-forest-800/10 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-forest-500/40"
+              >
+                <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-forest-100 text-forest-700">
+                  <app-icon name="mail" class="size-5" />
+                </span>
+                <span class="min-w-0">
+                  <span class="font-labels block text-[12px] font-semibold tracking-[0.14em] text-ink/70 uppercase">{{ 'contact.sideEmail' | t }}</span>
+                  <span class="mt-0.5 block truncate text-[15px] font-medium text-forest-700 group-hover:text-forest-600">info&#64;eirionai.com</span>
+                </span>
+              </a>
+              <a
+                href="https://wa.me/97512345678"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-start gap-4 rounded-2xl border border-forest-800/10 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-forest-500/40"
+              >
+                <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-forest-100 text-forest-700">
+                  <app-icon name="message-circle" class="size-5" />
+                </span>
+                <span class="min-w-0">
+                  <span class="font-labels block text-[12px] font-semibold tracking-[0.14em] text-ink/70 uppercase">{{ 'contact.sideWhats' | t }}</span>
+                  <span class="mt-0.5 block truncate text-[15px] font-medium text-forest-700 group-hover:text-forest-600">+975 12345678</span>
+                </span>
+              </a>
+              <div class="mt-2 space-y-3 rounded-2xl bg-forest-50 p-5">
+                <p class="flex items-start gap-3 text-[14.5px] leading-relaxed text-ink/70">
+                  <app-icon name="clock" class="mt-0.5 size-4 shrink-0 text-forest-600" />{{ 'contact.sideNote1' | t }}
+                </p>
+                <p class="flex items-start gap-3 text-[14.5px] leading-relaxed text-ink/70">
+                  <app-icon name="shield-check" class="mt-0.5 size-4 shrink-0 text-forest-600" />{{ 'contact.sideNote2' | t }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  `

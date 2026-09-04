@@ -1,0 +1,241 @@
+<footer class="relative overflow-hidden bg-forest-900 text-white">
+
+      <!-- TOP LINE -->
+      <div class="relative h-px w-full overflow-hidden">
+        <div
+          class="animate-shimmer absolute inset-0 bg-gradient-to-r from-transparent via-cream to-transparent bg-[length:200%_auto]"
+        ></div>
+      </div>
+
+      <!-- BACKGROUND GLOW -->
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute -top-40 left-1/2 h-80 w-[720px] -translate-x-1/2 rounded-full bg-forest-500/20 blur-[140px]"
+      ></div>
+
+      <div class="container-site relative py-20 md:py-24">
+
+        <div class="grid gap-14 lg:grid-cols-[1.4fr_2fr]">
+
+          <!-- ================================================= -->
+          <!-- LEFT SIDE -->
+          <!-- ================================================= -->
+
+          <div appReveal>
+            <div>
+
+              <!-- LOGO -->
+              <button
+                type="button"
+                class="inline-flex items-center"
+                aria-label="eirion.ai home"
+                (click)="goToSection('hero')"
+              >
+                <img
+                  src="assets/logo-mark.webp"
+                  alt="eirion.ai"
+                  width="448"
+                  height="123"
+                  loading="lazy"
+                  class="h-10 w-auto"
+                />
+              </button>
+
+              <!-- TAGLINE -->
+              <p
+                class="mt-5 max-w-sm text-[15px] leading-relaxed text-cream"
+              >
+                {{ 'footer.tagline' | t }}
+              </p>
+
+              <!-- ================================================= -->
+              <!-- NEWSLETTER -->
+              <!-- ================================================= -->
+
+              <form
+                class="mt-8"
+                [attr.aria-label]="'footer.newsletter' | t"
+                (submit)="onSubscribe($event)"
+              >
+
+                <label
+                  for="newsletter-email"
+                  class="font-labels mb-3 block text-[13px] font-semibold tracking-[0.18em] text-cream uppercase"
+                >
+                  {{ 'footer.newsletter' | t }}
+                </label>
+
+                <div
+                  class="flex max-w-sm overflow-hidden rounded-full border border-white/15 bg-white/5 backdrop-blur-sm focus-within:border-cream/60"
+                >
+
+                  <input
+                    id="newsletter-email"
+                    type="email"
+                    required
+                    [placeholder]="'footer.emailPh' | t"
+                    [value]="emailValue()"
+                    (input)="emailValue.set($any($event.target).value)"
+                    class="w-full bg-transparent px-5 py-3 text-[15px] text-white placeholder:text-cream/55 focus:outline-none"
+                  />
+
+                  <button
+                    type="submit"
+                    [attr.aria-label]="'footer.subscribe' | t"
+                    class="group m-1 grid shrink-0 place-items-center rounded-full bg-cream px-4 text-forest-950 transition-transform hover:scale-105"
+                  >
+                    <app-icon
+                      name="arrow-right"
+                      [size]="16"
+                      class="size-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                    />
+                  </button>
+
+                </div>
+
+              </form>
+
+              <!-- ================================================= -->
+              <!-- SOCIAL -->
+              <!-- ================================================= -->
+
+              <div class="mt-8 flex gap-3">
+
+                <!-- LINKEDIN -->
+                <a
+                  href="https://www.linkedin.com/company/eirion-technology-diagnostics/?viewAsMember=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  class="grid size-10 place-items-center rounded-full border border-white/12 text-cream transition-colors hover:border-cream/50 hover:text-cream"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="size-[17px]"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45Z"
+                    ></path>
+                  </svg>
+                </a>
+
+                <!-- X -->
+                <span
+                  [attr.aria-label]="'footer.xSoon' | t"
+                  [attr.title]="'footer.xSoon' | t"
+                  class="grid size-10 place-items-center rounded-full border border-white/10 text-cream/55"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="size-[17px]"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23Zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64Z"
+                    ></path>
+                  </svg>
+                </span>
+
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- ================================================= -->
+          <!-- FOOTER LINK COLUMNS -->
+          <!-- ================================================= -->
+
+          <div class="grid grid-cols-2 gap-10 sm:grid-cols-3">
+
+            @for (col of columns; track col.titleKey) {
+
+              <div appReveal [delay]="100">
+
+                <div>
+
+                  <h3
+                    class="font-labels text-[13px] font-semibold tracking-[0.18em] text-cream uppercase"
+                  >
+                    {{ col.titleKey | t }}
+                  </h3>
+
+                  <ul class="mt-5 space-y-3.5">
+
+                    @for (link of col.links; track link.labelKey) {
+
+                      <li>
+
+                        <button
+                          type="button"
+                          (click)="handleLink(link)"
+                          class="group relative text-left text-[15px] text-cream transition-colors hover:text-white"
+                        >
+
+                          {{ link.labelKey | t }}
+
+                          <span
+                            class="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-cream/70 transition-transform duration-300 group-hover:scale-x-100"
+                          ></span>
+
+                        </button>
+
+                      </li>
+
+                    }
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+            }
+
+          </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- BOTTOM -->
+        <!-- ================================================= -->
+
+        <div
+          class="mt-16 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-8 md:flex-row"
+        >
+
+          <p class="text-[14px] text-cream">
+            {{ 'footer.rights' | t }}
+          </p>
+
+          <ul class="flex gap-7">
+
+            <li>
+              <a
+                class="inline-flex min-h-11 items-center rounded-full border border-white/15 px-4 text-[14px] font-medium text-cream transition-colors hover:border-cream/50 hover:bg-white/5 hover:text-white"
+                href="/terms/#privacy-statement"
+              >
+                {{ 'footer.privacy' | t }}
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="inline-flex min-h-11 items-center rounded-full border border-white/15 px-4 text-[14px] font-medium text-cream transition-colors hover:border-cream/50 hover:bg-white/5 hover:text-white"
+                href="/terms/"
+              >
+                {{ 'footer.terms' | t }}
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </footer>

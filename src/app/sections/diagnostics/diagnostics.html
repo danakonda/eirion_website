@@ -1,0 +1,51 @@
+<section id="diagnostics" class="relative overflow-hidden py-[100px] md:py-[140px] bg-forest-50 text-ink">
+  <div class="container-site">
+    <div appReveal>
+      <p class="font-labels flex items-center gap-4 text-[13px] font-semibold tracking-[0.22em] text-forest-600 uppercase">
+        <span aria-hidden="true" class="h-px w-10 bg-forest-600/40"></span>{{ 'diag.eyebrow' | t }}
+      </p>
+    </div>
+    <div appReveal [delay]="100">
+      <h2 class="font-heading mt-6 max-w-3xl text-4xl leading-[1.08] font-semibold tracking-tight text-forest-950 md:text-[54px]">
+        <span class="block">{{ 'diag.title1' | t }}</span><span class="block">{{ 'diag.title2' | t }}</span>
+      </h2>
+    </div>
+    <div appReveal [delay]="200">
+      <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ink/65">
+        {{ 'diag.sub' | t }}
+      </p>
+    </div>
+    <div appReveal [delay]="300">
+      <figure class="mt-16 max-w-3xl border-l-2 border-forest-500/50 pl-7">
+        <blockquote class="text-[19px] leading-relaxed text-forest-900/85 italic md:text-[21px]">
+          {{ 'diag.quote' | t }}
+        </blockquote>
+        <figcaption class="font-labels mt-5 text-[13px] font-semibold tracking-[0.18em] text-ink/50 uppercase">
+          {{ 'diag.quoteAttr' | t }}
+        </figcaption>
+      </figure>
+    </div>
+    <div class="mt-20 grid gap-8 md:grid-cols-3">
+      @for (layer of layers; track layer.titleKey; let i = $index) {
+        <div appReveal [delay]="i * 140">
+          <div class="group h-full rounded-lg bg-white p-8 shadow-[0_10px_34px_-26px_rgba(18,69,41,0.35)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_22px_48px_-24px_rgba(18,69,41,0.35)] md:p-9">
+            <span class="grid size-14 place-items-center rounded-xl transition-transform duration-500 group-hover:scale-105" [class]="layer.iconBg">
+              <app-icon [name]="layer.icon" [size]="24" class="size-6" />
+            </span>
+            <p class="font-labels mt-9 text-[12.5px] font-semibold tracking-[0.16em] text-ink/45 uppercase">{{ layer.badgeKey | t }}</p>
+            <h3 class="font-heading mt-2.5 text-[23px] font-semibold tracking-tight text-forest-950">{{ layer.titleKey | t }}</h3>
+            <p class="mt-4 text-[15.5px] leading-relaxed text-ink/60">{{ layer.descKey | t }}</p>
+            <ul class="mt-6 space-y-3.5">
+              @for (bulletKey of layer.bulletKeys; track bulletKey) {
+                <li class="flex items-start gap-3 text-[15px] text-ink/75">
+                  <app-icon name="circle-check" class="mt-[3px] size-[18px] shrink-0" [class]="layer.checkColor" />
+                  {{ bulletKey | t }}
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+<section id="platform" class="relative overflow-hidden py-[100px] md:py-[140px] bg-cream text-ink">
+  <div class="bg-grid-light absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black_15%,transparent_65%)]" aria-hidden="true"></div>
+  <div class="container-site relative">
+    <div class="mb-16 max-w-3xl md:mb-20 mx-auto text-center">
+      <div appReveal>
+        <h2 class="font-heading text-4xl leading-[1.08] font-semibold tracking-tight text-balance md:text-[56px] text-forest-950">
+          <span class="block">{{ 'platform.title1' | t }}</span><span class="block">{{ 'platform.title2' | t }}</span>
+        </h2>
+      </div>
+      <div appReveal [delay]="150">
+        <p class="mt-6 text-lg leading-relaxed text-ink/65 mx-auto max-w-2xl">
+          {{ 'platform.sub' | t }}
+        </p>
+      </div>
+    </div>
+    <div class="grid gap-8 lg:grid-cols-2">
+      @for (card of cards; track card.titleKey; let i = $index) {
+        <div appReveal [delay]="i * 150">
+          <div class="group relative overflow-hidden rounded-3xl border border-forest-800/10 bg-white shadow-[0_18px_50px_-24px_rgba(18,69,41,0.18)] h-full p-9 md:p-11" (mousemove)="onCardMove($event)">
+            <div
+              aria-hidden="true"
+              class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              [style.background]="'radial-gradient(420px circle at ' + spotX() + 'px ' + spotY() + 'px, rgba(22,163,74,0.10), transparent 72%)'"
+            ></div>
+            <div class="relative">
+              <div class="flex items-start justify-between">
+                <span class="grid size-14 place-items-center rounded-2xl bg-gradient-to-br from-forest-600 to-forest-800 text-white shadow-[0_10px_30px_-10px_rgba(16,117,58,0.6)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <app-icon [name]="card.icon" [size]="24" class="size-6" />
+                </span>
+                <span class="font-labels rounded-full border border-forest-500/30 bg-forest-100 px-3.5 py-1.5 text-[12px] font-semibold tracking-[0.14em] text-gold-700 uppercase">{{ card.badgeKey | t }}</span>
+              </div>
+              <h3 class="font-heading mt-7 text-2xl font-semibold tracking-tight text-forest-950 md:text-[28px]">{{ card.titleKey | t }}</h3>
+              <ul class="mt-7 space-y-4">
+                @for (bulletKey of card.bulletKeys; track bulletKey) {
+                  <li class="flex items-start gap-3 text-[16px] leading-relaxed text-ink/70">
+                    <span class="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-forest-100 text-forest-700">
+                      <app-icon name="check" [size]="12" class="size-3" />
+                    </span>
+                    {{ bulletKey | t }}
+                  </li>
+                }
+              </ul>
+              <a href="#cta" class="group/link font-labels mt-9 inline-flex items-center gap-2 text-[15px] font-semibold text-forest-700 transition-colors hover:text-forest-900">
+                {{ card.linkKey | t }}<span class="transition-transform duration-300 group-hover/link:translate-x-1.5" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
