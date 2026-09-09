@@ -1,29 +1,39 @@
-<section class="relative h-[350vh] border-y border-forest-800/8 bg-forest-50" [attr.aria-label]="'scroll.aria' | t">
-      <ul class="sr-only">
-        @for (stage of stages; track stage.wordKey) {
-          <li>{{ stage.wordKey | t }} &mdash; {{ stage.subKey | t }}</li>
-        }
-      </ul>
-      <div aria-hidden="true" class="sticky top-0 flex h-svh flex-col items-center justify-center overflow-hidden [perspective:900px]">
-        <div class="will-change-transform">
-          <div class="flex flex-col items-center px-6 text-center">
-            <p class="font-heading text-[clamp(68px,13vw,190px)] leading-none font-bold tracking-tight select-none [color:var(--stage-color)] transition-colors duration-500">
-              {{ stages[stage()].wordKey | t }}
-            </p>
-            <p class="mt-6 text-[clamp(20px,2.6vw,34px)] font-medium transition-colors duration-500" [style.color]="'rgba(20,116,47,' + subAlpha() + ')'">
-              {{ stages[stage()].subKey | t }}
-            </p>
-          </div>
-        </div>
-        <div class="absolute bottom-10 flex items-center gap-3">
-          @for (s of stages; track $index) {
-            <span
-              class="h-1 w-12 rounded-full transition-colors duration-500 md:w-14"
-              [class.bg-forest-900]="$index === stage()"
-              [class.bg-forest-900]="$index !== stage()"
-            ></span>
-          }
-        </div>
+<section
+  class="relative h-[350vh] border-y border-forest-800/8 bg-forest-50"
+  [attr.aria-label]="'scroll.aria' | t"
+>
+  <ul class="sr-only">
+    @for (stage of stages; track stage.wordKey) {
+      <li>{{ stage.wordKey | t }} &mdash; {{ stage.subKey | t }}</li>
+    }
+  </ul>
+
+  <div
+    aria-hidden="true"
+    class="sticky top-0 flex h-svh flex-col items-center justify-center overflow-hidden [perspective:900px]"
+  >
+    <div class="will-change-transform">
+      <div class="flex flex-col items-center px-6 text-center">
+        <p
+          class="font-heading text-[clamp(68px,13vw,190px)] leading-none font-bold tracking-tight select-none [color:var(--stage-color)] transition-colors duration-500"
+        >
+          {{ stages[stage()].wordKey | t }}
+        </p>
+
+        <p
+          class="mt-6 text-[clamp(20px,2.6vw,34px)] font-medium text-forest-800 transition-colors duration-500"
+        >
+          {{ stages[stage()].subKey | t }}
+        </p>
       </div>
-    </section>
-  
+    </div>
+
+    <div class="absolute bottom-10 flex items-center gap-3">
+      @for (s of stages; track $index) {
+        <span
+          class="h-1 w-12 rounded-full bg-forest-900 transition-colors duration-500 md:w-14"
+        ></span>
+      }
+    </div>
+  </div>
+</section>
