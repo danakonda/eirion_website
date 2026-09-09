@@ -289,3 +289,7 @@ body {
   30% { opacity: 1; }
   100% { opacity: 0; transform: translateY(10px); }
 }
+.swap-leaving {
+  opacity: 1;
+  transform: translateY(-100%);
+}

@@ -3,13 +3,15 @@
 }
 
 .swap-active {
-  opacity: 1;
+  opacity: 1 !important;
+  color: #fbf9f1 !important;
   transform: none;
-  transition: opacity 0.5s ease;
+  transition: none;
 }
 
 .swap-leaving {
-  opacity: 0;
-  transform: none;
-  transition: opacity 0.5s ease;
+  opacity: 1 !important;
+  color: #fbf9f1 !important;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
 }
