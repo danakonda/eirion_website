@@ -95,16 +95,18 @@ const ICONS: Record<IconName, string> = {
 @Component({
   selector: "app-icon",
   template: `<svg
-    [attr.width]="size()"
-    [attr.height]="size()"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    [innerHTML]="path"
-  ></svg>`,
+  [attr.width]="size()"
+  [attr.height]="size()"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+  [innerHTML]="path"
+></svg>`,
   styles: ":host{display:contents} svg{flex-shrink:0}",
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
