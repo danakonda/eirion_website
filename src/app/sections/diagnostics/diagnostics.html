@@ -20,7 +20,7 @@
         <blockquote class="text-[19px] leading-relaxed text-forest-900/85 italic md:text-[21px]">
           {{ 'diag.quote' | t }}
         </blockquote>
-        <figcaption class="font-labels mt-5 text-[13px] font-semibold tracking-[0.18em] text-ink/50 uppercase">
+        <figcaption class="font-labels mt-5 text-[13px] font-semibold tracking-[0.18em] text-ink uppercase">
           {{ 'diag.quoteAttr' | t }}
         </figcaption>
       </figure>
@@ -32,9 +32,9 @@
             <span class="grid size-14 place-items-center rounded-xl transition-transform duration-500 group-hover:scale-105" [class]="layer.iconBg">
               <app-icon [name]="layer.icon" [size]="24" class="size-6" />
             </span>
-            <p class="font-labels mt-9 text-[12.5px] font-semibold tracking-[0.16em] text-ink/45 uppercase">{{ layer.badgeKey | t }}</p>
+            <p class="font-labels mt-9 text-[12.5px] font-semibold tracking-[0.16em] text-ink uppercase">{{ layer.badgeKey | t }}</p>
             <h3 class="font-heading mt-2.5 text-[23px] font-semibold tracking-tight text-forest-950">{{ layer.titleKey | t }}</h3>
-            <p class="mt-4 text-[15.5px] leading-relaxed text-ink/60">{{ layer.descKey | t }}</p>
+            <p class="mt-4 text-[15.5px] leading-relaxed text-ink">{{ layer.descKey | t }}</p>
             <ul class="mt-6 space-y-3.5">
               @for (bulletKey of layer.bulletKeys; track bulletKey) {
                 <li class="flex items-start gap-3 text-[15px] text-ink/75">
