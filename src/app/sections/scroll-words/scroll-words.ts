@@ -45,7 +45,8 @@ export class ScrollWords implements OnInit, OnDestroy {
         const progress = Math.min(Math.max(-rect.top / total, 0), 1);
         const idx = Math.min(Math.floor(progress * this.stages.length), this.stages.length - 1);
         const local = progress * this.stages.length - idx;
-        const alpha = local < 0.1 ? 0.15 + (local / 0.1) * 0.85 : local > 0.9 ? 0.15 + ((1 - local) / 0.1) * 0.85 : 1;
+        
+        const alpha = local < 0.1 ? 0.6 + (local / 0.1) * 0.4 : local > 0.9 ? 0.6 + ((1 - local) / 0.1) * 0.4 : 1;
         this.subAlpha.set(alpha);
         if (idx !== this.stage()) this.zone.run(() => this.stage.set(idx));
       };
