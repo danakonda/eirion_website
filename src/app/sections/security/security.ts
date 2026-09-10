@@ -44,4 +44,27 @@ export class Security {
   ];
 
   protected readonly bottomRowKeys = ['sec.bottom1', 'sec.bottom2', 'sec.bottom3'];
+
+  // ============================================================
+  // ACCESSIBILITY SCORES
+  // ============================================================
+
+  protected readonly a11yRingCircumference = 2 * Math.PI * 52;
+
+  protected readonly a11yScores = [
+    {
+      id: 'ADA',
+      icon: 'shield-check' as const,
+      score: 98,
+      label: 'ADA Accessibility',
+      sub: 'Tested · 98/100',
+    },
+    {
+      id: 'WCAG',
+      icon: 'circle-check' as const,
+      score: 100,
+      label: 'WCAG 2.2 AA',
+      sub: 'WAVE · 0 errors · 10/10',
+    },
+  ];
 }
